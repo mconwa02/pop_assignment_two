@@ -7,16 +7,27 @@ computer_score = 0
 human_score = 0
 
 def main():
-    """ """
+    """ Hundred Game """
+    instruction()
+    computer_move(computer_score, human_score)
+    human_move(computer_score, human_score)
+    while False:
+    is_game_over(computer_score, human_score)
+    computer_move(computer_score, human_score)
+    human_move(computer_score, human_score)
+    else:
+        show_results(computer_score, human_score)
+        
 def instruction():
-    """Rules of Game
-Players take turns to roll a die as many times or until 1 is rolled.
-Each number rolled, except a 1, is added to players score.
-If 1 is rolled score for this turn is zero and turn ends.
-At the end of each turn, the score for that turn is
-added to the player's total score.
-The first player to reach or exceed 100 wins.
-"""
+    """Rules of the Game"""
+        print("You will play a game against the computer")
+        print("You will take turns to roll a die as many times or until 1 is rolled")
+        print("Each number rolled, except a 1, is added to each players score")
+        print("If 1 rolled, score for this turn will be zero, and turn ends")
+        print("The first player to reach or exceed 100 wins")
+        print("The computer will go first, so you get one more turn if the computer is the first to reach 100")
+        print("If there is a tie with 100 or more, each gets another turn until the tie is broken")
+    
     
 def human_move(computer_score, human_score):
 """ Tells the user current score and computer's score
@@ -126,11 +137,11 @@ def show_results(computer_score, human_score):
         return ans
 pytest
                
-def main(x):
+def main():
     return x + 1
 
 def test_answer():
-    assert main(3) == 5
+    assert main()
 
     
 
