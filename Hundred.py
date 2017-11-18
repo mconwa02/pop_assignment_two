@@ -76,7 +76,7 @@ The function returns the result (either 0 or the total of the rolls) """
 def is_game_over(computer_score, human_score):
 """ Returns True if either player has 100 or more, and the players are not tied!
     otherwise it returns False. (Call this only after the human's move)"""
-     if computor_score >= 100 or human_score >= 100 and (computer_score != human_score):
+     if computer_score >= 100 or human_score >= 100 and (computer_score != human_score):
          return True
      else:
          return False
@@ -117,11 +117,13 @@ ask_yes_or_no("Roll again?")
 
 def show_results(computer_score, human_score):
      """Declares weather the human won or lost"""
-     if computor_score >100 and human_score < 100:
-         print("Human lost the game by " + str(100 - human_score))
-     elif human_score >= 100 and computer_score >= 100:
-         print("Human won the game by" + str(human_score)
-
+     while True:
+        is_game_over(computer_score, human_score)    
+        if computer_score > human_score:
+            ans = print("You have lost the game by " + str(computer_score - human_score) + " points")
+        elif human_score > computer_score:
+            ans = print("You have won the game by " + str(human_score - computer_score) + " points")
+        return ans
 pytest
                
 def main(x):
