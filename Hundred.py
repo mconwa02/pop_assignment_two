@@ -74,8 +74,17 @@ The function returns the result (either 0 or the total of the rolls) """
     return result
     
 def is_game_over(computer_score, human_score):
+""" Returns True if either player has 100 or more, and the players are not tied!
+    otherwise it returns False. (Call this only after the human's move)"""
+     if computor_score >= 100 or human_score >= 100 and (computer_score != human_score):
+         return True
+     else:
+         return False
 
-
+    
+def roll():
+    die_value = random.randint(1,6)
+    return die_value
 
 
 print(roll())          
