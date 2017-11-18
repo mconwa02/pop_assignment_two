@@ -17,7 +17,6 @@ At the end of each turn, the score for that turn is
 added to the player's total score.
 The first player to reach or exceed 100 wins.
 """
-    computer move()
     
 def human_move(computer_score, human_score):
 """ Tells the user current score and computer's score
@@ -25,10 +24,30 @@ and how far behind (or ahead) they are.
 Then repeatedly asks whether the user wants to roll again until,
 The user decides not to roll again or rolls a 1.
 The function returns the result (either 0 or the total of the rolls) """
-    ask_yes_or_no("Do you want to roll? ", {"y", "Y"})
-    if 
-
-
+    print("Your current score is " + str(human_score))
+    print("The computer's score is " +str(computer_score))
+    if computer_score > human_score:
+        print("You are behind the computer by " + str(computer_score -human_score) + " points")
+    if computer_score < human_score:
+        print("You are ahead of the computer by " + str(human_score - computer_score) + " points")
+    turn_score = roll()
+    turn_sum = turn_score
+    n = 1
+    while True and turn_score!= 1:
+        ask_yes_or_no("Roll again?")
+        score = roll()
+        if score != 1:
+            turn_sum += score
+            n += 1
+        else:
+            turn_sum = 0
+            break
+    human_score = turn_sum
+    if turn_sum ==0 or turn_score ==1:
+        result = 0
+    else:
+        result = n
+    return result             
 
 def computer_move(computer_score, human_score):
 """The computer rolls some number of times, displays the result of each roll.
@@ -57,9 +76,7 @@ The function returns the result (either 0 or the total of the rolls) """
 def is_game_over(computer_score, human_score):
 
 
-def roll():
-    die_value = random.randint(1,7)
-    return die_value
+
 
 print(roll())          
 
