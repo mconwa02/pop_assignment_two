@@ -54,10 +54,12 @@ def human_move(computer_score, human_score):
         print("You are behind the computer by " + str(computer_score - human_score) + " points")
     elif computer_score < human_score:
         print("You are ahead of the computer by " + str(human_score - computer_score) + " points")
-    ask_yes_or_no("Would you like to Roll?")
-    score = roll()
-    print("die rolled: " + str(score))
-    turn_sum = score
+    if ask_yes_or_no("Would you like to Roll?"):
+        score = roll()
+        print("die rolled: " + str(score))
+        turn_sum = score
+    else:
+        print("Turn Ended")    
     while score != 1 and ask_yes_or_no("Roll again?"):
         score = roll()
         print("die rolled: " + str(score))
@@ -77,14 +79,12 @@ def computer_move(computer_score, human_score):
     global c_score
     print("Computers turn and rolls")
     turn_sum = 0
-    n_rolls = random.randint(1,50)
+    n_rolls = random.randint(1,5)
     for n in range(n_rolls):
         score = roll()
         print(score)
-        while score != 1: 
+        if score != 1: 
             turn_sum += score
-            score = roll()
-            print(score)
         else:
             turn_sum = 0
             break
@@ -137,18 +137,8 @@ def show_results(computer_score, human_score):
         elif human_score > computer_score:
             ans = print("You have won the game by " + str( human_score - computer_score) + " points")
         return ans
+
 main()
-    
-##pytest
-##               
-##def main():
-##    return x + 1
-##
-##def test_answer():
-##    assert main()
-
-    
-
 
 
 
