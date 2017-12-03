@@ -57,7 +57,10 @@ def human_move(computer_score, human_score):
     if ask_yes_or_no("Would you like to Roll?"):
         score = roll()
         print("die rolled: " + str(score))
-        turn_sum = score
+        if score ==1:
+            turn_sum = 0
+        else:
+            turn_sum = score
     else:
         print("Turn Ended")    
     while score != 1 and ask_yes_or_no("Roll again?"):
@@ -67,7 +70,6 @@ def human_move(computer_score, human_score):
         if score ==1:
             turn_sum = 0
             print("Turn Ended")
-            break
     else:
         print("Turn Ended")
     h_score = turn_sum
@@ -79,7 +81,7 @@ def computer_move(computer_score, human_score):
     global c_score
     print("Computers turn and rolls")
     turn_sum = 0
-    n_rolls = random.randint(1,5)
+    n_rolls = random.randint(1,6)
     for n in range(n_rolls):
         score = roll()
         print(score)
@@ -87,7 +89,6 @@ def computer_move(computer_score, human_score):
             turn_sum += score
         else:
             turn_sum = 0
-            break
     c_score = turn_sum
     return c_score
     
