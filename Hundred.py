@@ -27,7 +27,8 @@ def main():
             show_results(computer_score, human_score)
             break
     else:
-        print("Game Ended")        
+        print("Game Ended")
+        
 def instruction():
     """Rules of the Game"""
     print("The Hundred Game Rules")
@@ -38,7 +39,6 @@ def instruction():
     print("The first player to reach or exceed 100 wins!")
     print("The computer will go first, so you get one more turn if the computer is the first to reach 100.")
     print("If there is a tie with 100 or more, each gets another turn until the tie is broken.")
-    
     
 def human_move(computer_score, human_score):
     """ Tells the user current score and computer's score
@@ -62,18 +62,19 @@ def human_move(computer_score, human_score):
         else:
             turn_sum = score
     else:
-        print("Turn Ended")    
+        print("Turn Ended")
+        turn_sum = 0
+        return h_score
     while score != 1 and ask_yes_or_no("Roll again?"):
         score = roll()
         print("die rolled: " + str(score))
         turn_sum += score
         if score ==1:
             turn_sum = 0
-            print("Turn Ended")
     else:
         print("Turn Ended")
     h_score = turn_sum
-    return h_score             
+    return h_score     
 
 def computer_move(computer_score, human_score):
     """The computer rolls some number of times, displays the result of each roll.
