@@ -90,6 +90,7 @@ def computer_move(computer_score, human_score):
             turn_sum += score
         else:
             turn_sum = 0
+            break
     c_score = turn_sum
     return c_score
     
@@ -117,8 +118,6 @@ def ask_yes_or_no(prompt):
     elif s[0]=="n" or s[0] == "N":
         return False
     else:
-        print(prompt)
-        s = input()
         while s[0]!="y" or s[0] != "Y" or s[0]!= "n" or s[0] != "N":
             print(prompt)
             s = input()
@@ -128,7 +127,6 @@ def ask_yes_or_no(prompt):
             elif s[0] == "n" or s[0] == "N":
                 return  False
                 break
-        
 
 def show_results(computer_score, human_score):
      """Declares weather the human won or lost"""
